@@ -1,0 +1,57 @@
+comandosGit
+git init
+git config user.name "nome"
+git config user.email "email" //localmente
+git config --global user.name "nome"// define globalmente o nome de usuario meu
+
+git add arquivo
+git add . (adiciona todos os arquivos)
+git status
+
+git log
+git log -<numero de ultimas commits que deseja ver>
+git log --oneline ->resumo
+git log --oneline  -<numero> mistura os 2 ->resumo+ultimas
+git log --before="2024-11-13" -> pesquisa os commits antes da data 
+git log --after="2024-11-13" -> pesquisa os commits depois da data podendo combinar com os outros comandos (numeros desejado)
+git log --since="2 days ago" -> pesquisa os commits em data (funciona tambem para before e after)
+git log --author="Ottavio" -> pesquisa os commits por autor
+
+tem o .gitignore, arquivo que voce pode criar para colocar os nomes dentro dele os arquivos que voce não quer monitorar
+ignorar algum arquivo -> <nome arquivo.sla>
+ignorar todos arquivos de alguma extensão -> <*.sla>
+ignorar diretório -> <**diretorio>
+
+git commit -m "mensagem do commit"
+busca nas commits "\"
+apertar "b" para voltar nas commits
+apertar "q" para sair das commits
+
+//viajar no tempo
+git checkout <hash do commit>
+pra voltar pro que estava (ultimo commit) git checkout master
+
+
+git mv <nome do arquivo> <nome novo desse arquivo>// mais facil para renomear e ja atualizar para o git
+git rm <nome do arquivo a ser deletado>
+
+git diff --staged
+compara arquivo que esta pronto para ser commitado com a ultima versao commitada
+
+git diff <algum hash de commit mais antigo>
+git diff <hash de um commit antigo(mais abaixo)>..<commit mais novo> (até)
+
+git --amend -m" edita a mensagem digitada no commit"
+-> fazer a modificação necessaria, e depois add ela e para commitar usar o git commit --amend -m"mensagem"
+
+git restore --staged <nome do arquivo> tirar ele do monitoramento
+se quiser voltar um arquivo como ele era antes (no ultimo commit) -> git checkout <nome do arquivo>
+
+HEAD é o ultimo commit que voce deu
+git reset HEAD^ --hard -> cancela o ultimo commit que fez
+teste pra ver se muda 
+
+git checkout -- <nome do arquivo que quer desfazer as modificações>   --> para arquivos somente modified
+git checkout HEAD -- . (ou o nome do arquivo que adicionou e nao quer mais)  --> para arquivos add
+git reset HEAD-(numero de arquivos que quer reverter)  --> arquivos já commitados, vai remover o commit e desfazer as alteraçoes do seu commit
+git revert <numero hash commit desejado> --> vai criar um commit novo fazendo o contrario do commit selecionado
